@@ -43,7 +43,7 @@ public class MAramSzolgaltato {
      */
     private String kep;
     /**
-     * A kereskedő kapcsolattartójának e-mail címe
+     * A kereskedő kapcsolattartójának e-mail címe.
      */
     private String kapcsolattarto_mail;
     /**
@@ -62,7 +62,8 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param id
+     * @param id Az áram szolgáltatókhoz tartozó egyedi azonosító, elsődleges
+     * kulcs
      */
     public void setId(int id) {
         this.id = id;
@@ -78,7 +79,8 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param megnevezes
+     * @param megnevezes A kereskedő ill. szolgáltató szöveges megnevezése.
+     * megnevezése.
      */
     public void setMegnevezes(String megnevezes) {
         this.megnevezes = megnevezes;
@@ -94,7 +96,8 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param megnevezes_rovid
+     * @param megnevezes_rovid A kereskedő ill. szolgáltató rövidített szöveges
+     * megnevezése.
      */
     public void setMegnevezes_rovid(String megnevezes_rovid) {
         this.megnevezes_rovid = megnevezes_rovid;
@@ -110,7 +113,7 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param cim
+     * @param cim A kereskedő ill. szolgáltató székhelyének címe.
      */
     public void setCim(String cim) {
         this.cim = cim;
@@ -126,7 +129,7 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param uf_online
+     * @param uf_online Link az online ügyfélszolgálatra.
      */
     public void setUf_online(String uf_online) {
         this.uf_online = uf_online;
@@ -142,7 +145,7 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param uf
+     * @param uf Offline ügyfélszolgálati elérhetőség(ek).
      */
     public void setUf(String uf) {
         this.uf = uf;
@@ -158,7 +161,8 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param leiras
+     * @param leiras A kereskedő ill. szolgáltatóhoz kapcsolódó, bővebb szöveges
+     * leírás.
      */
     public void setLeiras(String leiras) {
         this.leiras = leiras;
@@ -174,7 +178,7 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param link
+     * @param link A kereskedő ill. szolgáltató weboldalára mutató link.
      */
     public void setLink(String link) {
         this.link = link;
@@ -190,7 +194,8 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param kep
+     * @param kep A kereskedő ill. szolgáltató szerveren tárolt logóképének url
+     * címe.
      */
     public void setKep(String kep) {
         this.kep = kep;
@@ -206,7 +211,7 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param kapcsolattarto_mail
+     * @param kapcsolattarto_mail A kereskedő kapcsolattartójának e-mail címe
      */
     public void setKapcsolattarto_mail(String kapcsolattarto_mail) {
         this.kapcsolattarto_mail = kapcsolattarto_mail;
@@ -222,7 +227,8 @@ public class MAramSzolgaltato {
 
     /**
      *
-     * @param torolt
+     * @param torolt A rekord aktív-inaktív állapotának jelzésére szolgáló
+     * kétállapotú jelző. Értéke 0 vagy 1.
      */
     public void setTorolt(int torolt) {
         this.torolt = torolt;

@@ -3,8 +3,6 @@ package com.ds710t.szolgaltatok.model;
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,19 +16,38 @@ import org.xml.sax.SAXException;
  */
 public class MAramSzolgaltatokXML {
 
+    /**
+     * Ebben a listában tároljuk a beolvasott adatokat.
+     */
     private ArrayList<MAramSzolgaltato> selectData;
+    /**
+     * Naplózás.
+     */
     static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(
-            MAramSzolgaltatok.class);
+            MAramSzolgaltatokXML.class);
+    /**
+     * XML beolvasó funkciókat tartalmazó osztály.
+     */
     private XMLFunctions xmlfunctions;
+    /**
+     * Egy rekord tárolását valósítja meg.
+     */
     private MAramSzolgaltato item;
 
     /**
-     * Konstruktor
+     * Konstruktor.
      */
     public MAramSzolgaltatokXML() {
     }
 
     /**
+     * Eljárás, amely bejárja az aram_szolgaltatok.xml fájlt.
+     *
+     * Ciklussal bejárja az XML fájlt:
+     *
+     * {@code
+     *  for (int i = 0; i < nodeListSzolgaltato.getLength(); i++)
+     * }
      *
      * @return selectData
      */
@@ -103,8 +120,7 @@ public class MAramSzolgaltatokXML {
 
 
         } catch (SAXException | IOException ex) {
-            Logger.getLogger(MAramSzolgaltatokXML.class.getName()).
-                    log(Level.SEVERE, null, ex);
+            LOGGER.error("Hiba", ex);
         }
 
         return selectData;

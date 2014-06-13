@@ -2,13 +2,9 @@ package com.ds710t.szolgaltatok.controller;
 
 import com.ds710t.szolgaltatok.GlobalisV;
 import com.ds710t.szolgaltatok.model.MAramSzolgaltato;
-import com.ds710t.szolgaltatok.model.MAramSzolgaltatok;
 import com.ds710t.szolgaltatok.model.MAramSzolgaltatokXML;
 import com.ds710t.szolgaltatok.view.WAramSzolgaltatokTable;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -24,7 +20,6 @@ public class CAramSzolgaltatok {
     /**
      * MAramSzolgaltatok.
      */
-    private MAramSzolgaltatok am;
     private MAramSzolgaltatokXML amxml;
     /**
      * Naplózás.
@@ -51,33 +46,9 @@ public class CAramSzolgaltatok {
     }
 
     /**
-     * Összes adat lekérdezése a táblához (MYSQL LOCALHOST).
-     *
-     * @return a
-     */
-    public final ArrayList<MAramSzolgaltato> getAdat() {
-        try {
-            am = new MAramSzolgaltatok();
-            LOGGER.info("SQL kérés elindítva.");
-            a = am.SelectAll();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(CAramSzolgaltatok.class.getName()).
-                    log(Level.SEVERE, null, ex);
-            LOGGER.error("SQL hiba!");
-        } catch (Exception ex) {
-            Logger.getLogger(CAramSzolgaltatok.class.getName()).
-                    log(Level.SEVERE, null, ex);
-            LOGGER.info("Hiba!");
-        }
-
-        return a;
-    }
-
-    /**
      * Egy rekord hozzáadása.
      *
-     * @param p
+     * @param p MAramSzolgaltato típusú.
      */
     public void insertAdat(final MAramSzolgaltato p) {
         GlobalisV.data_global.add(p);
@@ -87,7 +58,8 @@ public class CAramSzolgaltatok {
     /**
      * Egy rekord módosítása.
      *
-     * @param p, id
+     * @param p MAramSzolgaltato típusú,
+     * @param id Szolgáltató azonosítója
      */
     public void updateAdat(final MAramSzolgaltato p, int id) {
         for (int i = 0; i < GlobalisV.data_global.size(); i++) {
@@ -111,7 +83,7 @@ public class CAramSzolgaltatok {
     /**
      * Egy rekord törlése.
      *
-     * @param id
+     * @param id Az azonosító alapján keressük és töröljük.
      */
     public void deleteAdat(int id) {
         for (int i = 0; i < GlobalisV.data_global.size(); i++) {
@@ -122,6 +94,9 @@ public class CAramSzolgaltatok {
         reDrawTable();
     }
 
+    /**
+     * Újra kirajzolja a táblát.
+     */
     private void reDrawTable() {
         //Táblázat generálása
         WAramSzolgaltatokTable T = new WAramSzolgaltatokTable();
